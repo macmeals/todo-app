@@ -1,7 +1,7 @@
 import "./styles.css";
 
 // ページ読み込み時にDOMを読み込ませる。（これがないとaddEventlistnerのIDが存在しない
-window.onload = function () {
+window.addEventListener("DOMContentLoaded", function () {
   // task登録のボタンの要素へアクセス
   const todobtn = document.getElementById("todosubmit");
 
@@ -12,4 +12,4 @@ window.onload = function () {
     // テキストボックスの内容をコンソールログとして出力
     console.log(texts);
   });
-};
+});
