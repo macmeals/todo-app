@@ -10,15 +10,20 @@ const todoList = document.getElementById("todolist");
 // Todoリスト用の「　liタグ　」を追加
 const listItem = document.createElement("li");
 
-todobtn.addEventListener("click", (evt) => {
+todobtn.addEventListener("click", () => {
+  //  Todoリストの子要素のLi要素を追加
+  const showItem = todoList.appendChild(listItem);
   //  テキストボックスの内容を変数に格納
   const texts = todotask.value;
-
-  const showItem = todoList.appendChild(listItem);
+  //  テキストボックスの内容をli要素を格納
   showItem.innerHTML = texts;
 
-  // // テキストボックスの内容をコンソールログとして出力
-  // console.log(texts);
+  //  作成したli要素（Todoリスト）を複製
+  const clonelist = showItem.cloneNode(true);
+  //  複製したli要素（Todoリスト）を親要素の一番下に追加
+  document.body.appendChild(clonelist);
+  //  親要素todolistの一番最初の子要素のli要素（Todoリスト）を削除
+  todoList.removeChild(listItem);
 
   // 「登録」ボタンを押すとテキストボックスの中身を空にする
   todotask.value = "";
