@@ -21,13 +21,21 @@ todobtn.addEventListener("click", () => {
   // 「登録」ボタンを押すとテキストボックスの中身を空にする
   todotask.value = "";
 
-  // ・・・・・・・・・・・・・・Todoリストの完了ボタン作作成・・・・・・・・・・・・・・・・・・・・・・
+  // ・・・・・・・・・・・・・・Todoリストの完了ボタン作成・・・・・・・・・・・・・・・・・・・・・・
   // 完了ボタン用の「　buttonタグ　」を追加
   const compbtn = document.createElement("button");
-  //  Todoリストの子要素のbutton要素を追加
-  const showcompbtn = todoList.appendChild(compbtn);
+  // TodoリストのLiタグの子要素としてbuttonタグを追加
+  const showcompbtn = listItem.appendChild(compbtn);
   //  button要素のラベルを追加
-  showcompbtn.innerHTML = "完了";
+  showcompbtn.innerText = "完了";
+
+  // ・・・・・・・・・・・・・・Todoリストの完了ボタンを押すと取り消し線・・・・・・・・・・・・・・・・・・・・・・
+  compbtn.addEventListener("click", () => {
+    // Button要素の親要素（liタグ）を取得
+    const complist = compbtn.closest("li");
+    // Button要素の親要素（liタグ）に横線のCSSを付与
+    complist.classList.add("yokosen");
+  });
 
   // ・・・・・・・・・・・・・・Todoリストの削除ボタン作作成・・・・・・・・・・・・・・・・・・・・・・
   // 削除ボタン用の「　buttonタグ　」を追加
