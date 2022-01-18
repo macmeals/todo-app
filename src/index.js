@@ -37,13 +37,21 @@ todobtn.addEventListener("click", () => {
     complist.classList.add("yokosen");
   });
 
-  // ・・・・・・・・・・・・・・Todoリストの削除ボタン作作成・・・・・・・・・・・・・・・・・・・・・・
+  // ・・・・・・・・・・・・・・Todoリストの削除ボタン作成・・・・・・・・・・・・・・・・・・・・・・
   // 削除ボタン用の「　buttonタグ　」を追加
-  const deletebtn = document.createElement("button");
-  //  Todoリストの子要素のbutton要素を追加
-  const showdeletebtn = todoList.appendChild(deletebtn);
+  const deletebtn = document.createElement("button"); // TodoリストのLiタグの子要素としてbuttonタグを追加
+  // Liタグの子要素に追加
+  const showdeletebtn = listItem.appendChild(deletebtn);
   //  button要素のラベルを追加
   showdeletebtn.innerHTML = "削除";
+
+  // ・・・・・・・・・・・・・・Todoリストの削除ボタンを押すとタスクを削除・・・・・・・・・・・・・・・・・・・・・・
+  deletebtn.addEventListener("click", () => {
+    // Button要素の親要素（liタグ）を取得
+    const deletelist = deletebtn.closest("li");
+    // Button要素の親要素（liタグ）を削除
+    deletelist.remove();
+  });
 });
 
 // （参照）　リストを追加する場合、croneNodeを使う場合でも対応可能。
