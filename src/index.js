@@ -13,11 +13,11 @@ todobtn.addEventListener("click", () => {
   // Todoリスト用の「　liタグ　」を追加
   const listItem = document.createElement("li");
   //  Todoリストの子要素のLi要素を追加
-  const showItem = todoList.appendChild(listItem);
+  todoList.appendChild(listItem);
   //  テキストボックスの内容を変数に格納
   const texts = todotask.value;
   //  テキストボックスの内容をli要素を格納
-  showItem.innerHTML = texts;
+  listItem.innerHTML = texts;
   // 「登録」ボタンを押すとテキストボックスの中身を空にする
   todotask.value = "";
 
@@ -25,9 +25,9 @@ todobtn.addEventListener("click", () => {
   // 完了ボタン用の「　buttonタグ　」を追加
   const compbtn = document.createElement("button");
   // TodoリストのLiタグの子要素としてbuttonタグを追加
-  const showcompbtn = listItem.appendChild(compbtn);
+  listItem.appendChild(compbtn);
   //  button要素のラベルを追加
-  showcompbtn.innerText = "完了";
+  compbtn.innerText = "完了";
 
   // ・・・・・・・・・・・・・・Todoリストの完了ボタンを押すと取り消し線・・・・・・・・・・・・・・・・・・・・・・
   compbtn.addEventListener("click", () => {
@@ -41,9 +41,9 @@ todobtn.addEventListener("click", () => {
   // 削除ボタン用の「　buttonタグ　」を追加
   const deletebtn = document.createElement("button"); // TodoリストのLiタグの子要素としてbuttonタグを追加
   // Liタグの子要素に追加
-  const showdeletebtn = listItem.appendChild(deletebtn);
+  listItem.appendChild(deletebtn);
   //  button要素のラベルを追加
-  showdeletebtn.innerHTML = "削除";
+  deletebtn.innerHTML = "削除";
 
   // ・・・・・・・・・・・・・・Todoリストの削除ボタンを押すとタスクを削除・・・・・・・・・・・・・・・・・・・・・・
   deletebtn.addEventListener("click", () => {
