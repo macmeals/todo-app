@@ -2,13 +2,16 @@ import "./styles.css";
 
 // Todo登録のボタン要素へアクセス
 const todobtn = document.getElementById("todosubmit");
+
 // Todo登録のテキストボックスの内容にアクセス
 const todotask = document.getElementById("todotext");
 
 // Todoリスト用要素へのアクセス
 const todoList = document.getElementById("todolist");
 
-todobtn.addEventListener("click", () => {
+todobtn.addEventListener("click", (e) => {
+  // 　　　　イベント既定のアクションを防ぐ
+  e.preventDefault();
   // ・・・・・・・・・・・・・・Todoリスト　作成・・・・・・・・・・・・・・・・・・・・・・
   // Todoリスト用の「　liタグ　」を追加
   const listItem = document.createElement("li");
